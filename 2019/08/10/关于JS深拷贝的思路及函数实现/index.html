@@ -16,7 +16,7 @@
 <meta property="og:description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下： 1234567891011121314151617181920let a = &amp;#">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/gallery/background-3.jpg">
-<meta property="og:updated_time" content="2019-08-10T04:18:30.578Z">
+<meta property="og:updated_time" content="2019-08-10T04:22:09.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于JS深拷贝的思路及函数实现">
 <meta name="twitter:description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下： 1234567891011121314151617181920let a = &amp;#">
@@ -180,7 +180,8 @@
 
 <p>运行结果如下：<br><img src="/gallery/190810-1/1.png" alt="运行结果1"></p>
 <ul>
-<li>在更改之前，b中的内容完全和a的一样，因为对象是存储在堆内存中的，栈中保存的是地址值，也就是说a实际存储的是这个对象的地址，而不是这个对象内容，所以b = a实际上也只是将a存储的地址给了b，结果就是两个变量a和b实际上是指向了同一块内存空间。<br><img src="/gallery/190810-1/2.png" alt><br>所以当b.name改变的时候，实际上是改变了这块内存空间中name的值，所以在更改之后打印出来的a和b中的name都是’b’，这显然不是我想要的结果，我只是希望更改b中的name为’b’而已，因此在更改b的时候不能干扰到a，所以我需要让b指向另一块内存空间，且拥有与a相同的属性和方法。<br>而深拷贝就是为了决解这种问题。</li>
+<li>在更改之前，b中的内容完全和a的一样，因为对象是存储在堆内存中的，栈中保存的是地址值，也就是说a实际存储的是这个对象的地址，而不是这个对象内容，所以b = a实际上也只是将a存储的地址给了b，结果就是两个变量a和b实际上是指向了同一块内存空间。<br><img src="/gallery/190810-1/2.png" alt></li>
+<li>所以当b.name改变的时候，实际上是改变了这块内存空间中name的值，所以在更改之后打印出来的a和b中的name都是’b’，这显然不是我想要的结果，我只是希望更改b中的name为’b’而已，因此在更改b的时候不能干扰到a，所以我需要让b指向另一块内存空间，且拥有与a相同的属性和方法。<br>而深拷贝就是为了决解这种问题。</li>
 </ul>
 <h2 id="深拷贝实现的基本思路"><a href="#深拷贝实现的基本思路" class="headerlink" title="深拷贝实现的基本思路"></a>深拷贝实现的基本思路</h2><p>深拷贝的实现主要依据下面三点：</p>
 <ul>
