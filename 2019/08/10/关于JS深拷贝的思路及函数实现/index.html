@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下： 1234567891011121314151617181920let a = &amp;#">
+    <meta name="description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下：">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于JS深拷贝的思路及函数实现">
 <meta property="og:url" content="http://yoursite.com/2019/08/10/关于JS深拷贝的思路及函数实现/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下： 1234567891011121314151617181920let a = &amp;#">
+<meta property="og:description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/gallery/background-3.jpg">
-<meta property="og:updated_time" content="2019-08-10T04:22:09.476Z">
+<meta property="og:updated_time" content="2019-08-13T08:41:39.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于JS深拷贝的思路及函数实现">
-<meta name="twitter:description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下： 1234567891011121314151617181920let a = &amp;#">
+<meta name="twitter:description" content="什么是深拷贝在JavaScript中，复制一个变量最常见的方法如下： 12let a = 1;let b = a;  通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下：">
 <meta name="twitter:image" content="http://yoursite.com/gallery/background-3.jpg">
 
 
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1060 个字)
+                    7 分钟 读完 (大约 1061 个字)
                 </span>
                 
                 
@@ -176,6 +176,7 @@
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">let b = a;</span><br></pre></td></tr></table></figure>
 
 <p>通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。<br>然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下：</p>
+<a id="more"></a>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">	name: &apos;a&apos;,</span><br><span class="line">	age: &apos;12&apos;,</span><br><span class="line">	sex: &apos;man&apos;</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;a的内容为：&apos;);</span><br><span class="line">console.log(a);</span><br><span class="line"></span><br><span class="line">let b = a;</span><br><span class="line">console.log(&apos;b的内容为：&apos;);</span><br><span class="line">console.log(b);</span><br><span class="line"></span><br><span class="line">b.name = &apos;b&apos;;	//此处更改b中的name</span><br><span class="line"></span><br><span class="line">console.log(&apos;更改后的结果如下：&apos;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;a的内容为：&apos;);</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(&apos;b的内容为：&apos;);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure>
 
 <p>运行结果如下：<br><img src="/gallery/190810-1/1.png" alt="运行结果1"></p>
@@ -314,11 +315,11 @@
             <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
                     
-                        <img class="image is-128x128 has-mb-6" src="/images/rabbit.jpeg" alt="枫雨">
+                        <img class="image is-128x128 has-mb-6" src="/images/rabbit.jpeg" alt="春水向东">
                     
                     
                     <p class="is-size-4 is-block">
-                        枫雨
+                        春水向东
                     </p>
                     
                     

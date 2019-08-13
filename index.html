@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 969 个字)
+                    6 分钟 读完 (大约 970 个字)
                 </span>
                 
                 
@@ -176,77 +176,17 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2. 语法"></a>2. 语法</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.splice(start, deleteCount, ...item)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-参数解析"><a href="#3-参数解析" class="headerlink" title="3. 参数解析"></a>3. 参数解析</h2><ul>
-<li>start(必需): <ul>
-<li>指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从-1计数，这意味着-n是倒数第n个元素并且等价于array.length-n）；如果负数的绝对值大于数组的长度，则表示开始位置为第0位。</li>
-</ul>
-</li>
-<li>deleteCount(可选):<ul>
-<li>整数，表示要移除的数组元素的个数。</li>
-<li>如果 deleteCount 大于 start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。</li>
-<li>如果 deleteCount 被省略了，或者它的值大于等于array.length - start(也就是说，如果它大于或者等于start之后的所有元素的数量)，那么start之后数组的所有元素都会被删除。</li>
-<li>如果 deleteCount 是 0 或者负数，则不移除元素。这种情况下，至少应添加一个新元素。</li>
-</ul>
-</li>
-<li>…item:<ul>
-<li>要添加进数组的元素,从start 位置开始。</li>
-<li>如果不指定，则 splice() 将只删除数组元素。</li>
-<li>该参数表示可以添加多个元素。</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-用法"><a href="#4-用法" class="headerlink" title="4. 用法"></a>4. 用法</h2><h3 id="（1）删除"><a href="#（1）删除" class="headerlink" title="（1）删除"></a>（1）删除</h3><ul>
-<li><p>让splice()执行删除功能，有两种选择</p>
-<ul>
-<li>只传递第一个参数，第一个参数为指定起始位置，该函数会将该参数指定的位置及其后面的所有内容都删除。</li>
-<li>传递第一个参数和第二个参数，第一个参数为指定开始删除的位置，第而二个参数为指定要删除的数组的元素个数。</li>
-</ul>
-</li>
-<li><p>示例如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr = [0,1,2,3,4,5,6,7];</span><br><span class="line">//只传递一个参数</span><br><span class="line">arr.splice(2);	</span><br><span class="line">//执行之后arr=[0,1]，从第2个位置开始（包括第2个位置），到数组末尾的内容都被删除</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr = [0,1,2,3,4,5,6,7];</span><br><span class="line"></span><br><span class="line">//传递前两个参数</span><br><span class="line">arr.splice(2,2);</span><br><span class="line">//执行之后 arr=[0,1,4,5,6,7],从第2个位置开始（包括第2个位置在内）的两个元素被删除，即2，3被删除了</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="（2）替换"><a href="#（2）替换" class="headerlink" title="（2）替换"></a>（2）替换</h3><ul>
-<li><p>替换的操作需要三个参数，第三个参数为替换的内容，将n个元素替换成另外的m个元素(n为原数组中需要替换的元素的个数，m为第3个参数里元素的个数，n可以等于m)，该操作可以理解如下：</p>
-<ul>
-<li>从起始位置开始（包括起始位置），删除n个元素</li>
-<li>将第三个参数里面的m个元素从起始位置开始，依次插入</li>
-</ul>
-</li>
-<li><p>示例如下：</p>
-<ul>
-<li><p>n === m:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr = [0,1,2,3,4,5,6,7];</span><br><span class="line">arr.splice(2,2,&apos;a&apos;,&apos;b&apos;);</span><br><span class="line">//执行后，arr=[0,1,&apos;a&apos;,&apos;b&apos;,4,5,6,7]</span><br></pre></td></tr></table></figure>
-
-<p>此时，从第2个位置开始（包括第2个位置在内）的两个元素被删除，即2，3被删除了，然后从第2个位置开始插入’a’,’b’两个元素。<br>即实现了将2，3替换成’a’,’b’。</p>
-</li>
-<li><p>n != m</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   let arr = [0,1,2,3,4,5,6,7];</span><br><span class="line">arr.splice(2,2,&apos;a&apos;,&apos;b&apos;);</span><br><span class="line">//执行后，arr=[0,1,&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,4,5,6,7]</span><br></pre></td></tr></table></figure>
-
-<p>基本操作同上，将2，3替换成’a’,’b’,’c’。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="（3）插入"><a href="#（3）插入" class="headerlink" title="（3）插入"></a>（3）插入</h3><ul>
-<li><p>实现插入操作时，第二个参数必须为0，不让splice删除任何元素</p>
-</li>
-<li><p>然后从指定的位置开始插入m个元素（m为第三个参数里元素的数量）</p>
-</li>
-<li><p>示例如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  let arr = [0,1,2,3,4,5,6,7];</span><br><span class="line">  // 第二个参数必须为0</span><br><span class="line">arr.splice(2,0,&apos;a&apos;,&apos;b&apos;);</span><br><span class="line">//执行后，arr=[0,1,&apos;a&apos;,&apos;b&apos;,2,3,4,5,6,7]</span><br></pre></td></tr></table></figure>
-
-<p>从第2个元素开始，插入’a’,’b’两个元素。</p>
-</li>
-</ul>
-
+<h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2. 语法"></a>2. 语法</h2>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/12/JavaScrip之splice/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -281,7 +221,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1060 个字)
+                    7 分钟 读完 (大约 1061 个字)
                 </span>
                 
                 
@@ -298,36 +238,16 @@
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">let b = a;</span><br></pre></td></tr></table></figure>
 
 <p>通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。<br>然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">	name: &apos;a&apos;,</span><br><span class="line">	age: &apos;12&apos;,</span><br><span class="line">	sex: &apos;man&apos;</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;a的内容为：&apos;);</span><br><span class="line">console.log(a);</span><br><span class="line"></span><br><span class="line">let b = a;</span><br><span class="line">console.log(&apos;b的内容为：&apos;);</span><br><span class="line">console.log(b);</span><br><span class="line"></span><br><span class="line">b.name = &apos;b&apos;;	//此处更改b中的name</span><br><span class="line"></span><br><span class="line">console.log(&apos;更改后的结果如下：&apos;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;a的内容为：&apos;);</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(&apos;b的内容为：&apos;);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure>
-
-<p>运行结果如下：<br><img src="/gallery/190810-1/1.png" alt="运行结果1"></p>
-<ul>
-<li>在更改之前，b中的内容完全和a的一样，因为对象是存储在堆内存中的，栈中保存的是地址值，也就是说a实际存储的是这个对象的地址，而不是这个对象内容，所以b = a实际上也只是将a存储的地址给了b，结果就是两个变量a和b实际上是指向了同一块内存空间。<br><img src="/gallery/190810-1/2.png" alt></li>
-<li>所以当b.name改变的时候，实际上是改变了这块内存空间中name的值，所以在更改之后打印出来的a和b中的name都是’b’，这显然不是我想要的结果，我只是希望更改b中的name为’b’而已，因此在更改b的时候不能干扰到a，所以我需要让b指向另一块内存空间，且拥有与a相同的属性和方法。<br>而深拷贝就是为了决解这种问题。</li>
-</ul>
-<h2 id="深拷贝实现的基本思路"><a href="#深拷贝实现的基本思路" class="headerlink" title="深拷贝实现的基本思路"></a>深拷贝实现的基本思路</h2><p>深拷贝的实现主要依据下面三点：</p>
-<ul>
-<li>非引用类型的变量复制的时候，内存会为其分配新的空间。</li>
-<li>非引用类型的变量，只需使用 b = a的形式进行复制</li>
-<li>如果是引用类型的变量，将其指向的内存空间中的属性与方法拿出来，然后使用上一点的形式进行复制</li>
-</ul>
-<h2 id="实现深拷贝的函数"><a href="#实现深拷贝的函数" class="headerlink" title="实现深拷贝的函数"></a>实现深拷贝的函数</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>具体代码实现如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy(obj)&#123;</span><br><span class="line">	//如果不是引用类型的变量，直接返回</span><br><span class="line">	if(typeof(obj) !== &apos;object&apos;) return obj;</span><br><span class="line">	//判断是不是数组</span><br><span class="line">	let newObj = toString.call(obj) === &apos;[object Array]&apos; ? [] : &#123;&#125;;</span><br><span class="line">	for(let key in obj)&#123;</span><br><span class="line">		//因为引用类型的变量之中可以继续存在引用类型的属性，所以此处需要使用递归</span><br><span class="line">		newObj[key] = deepCopy(obj[key]);</span><br><span class="line">	&#125;</span><br><span class="line">	return newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试的代码如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">	name: &apos;a&apos;,</span><br><span class="line">	age: &apos;12&apos;,</span><br><span class="line">	sex: &apos;man&apos;,</span><br><span class="line">	say:function()&#123;</span><br><span class="line">		console.log(&apos;你好&apos;);</span><br><span class="line">	&#125;,</span><br><span class="line">	grade:&#123;</span><br><span class="line">		Chinese: 100,</span><br><span class="line">		math: 99,</span><br><span class="line">		English: 98</span><br><span class="line">	&#125;,</span><br><span class="line">	hobby: [&apos;sing&apos;,&apos;jump&apos;,&apos;rap&apos;,&apos;basketball&apos;]</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;a的内容为：&apos;);</span><br><span class="line">console.log(a);</span><br><span class="line"></span><br><span class="line">let b = deepCopy(a);</span><br><span class="line">console.log(&apos;b的内容为：&apos;);</span><br><span class="line">console.log(b);</span><br><span class="line"></span><br><span class="line">b.name = &apos;b&apos;;</span><br><span class="line"></span><br><span class="line">console.log(&apos;更改后的结果如下：&apos;);</span><br><span class="line">console.log(&apos;a的内容为：&apos;);</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(&apos;b的内容为：&apos;);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure>
-
-<p>测试结果如下：<br><img src="/gallery/190810-1/3.png" alt="运行结果2"></p>
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>无意中在网络上看到的另一种比较简单、粗暴的思路，就是将引用类型直接转变为字符串，字符串不是引用类型的变量，因此，可以直接使用b = a的形式进行复制，也能达到我想要的结果。<br>具体代码如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy(obj)&#123;</span><br><span class="line">	//如果不是引用类型的变量，直接返回</span><br><span class="line">	if(typeof(obj) !== &apos;object&apos;) return obj;</span><br><span class="line">	//将对象转变为字符串，再进行复制</span><br><span class="line">	let newObj = JSON.stringify(obj);</span><br><span class="line">	//将字符串变回对象</span><br><span class="line">	return JSON.parse(newObj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试代码如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">			name: &apos;a&apos;,</span><br><span class="line">			age: &apos;12&apos;,</span><br><span class="line">			sex: &apos;man&apos;,</span><br><span class="line">			say:function()&#123;</span><br><span class="line">				console.log(&apos;你好&apos;);</span><br><span class="line">			&#125;,</span><br><span class="line">			grade:&#123;</span><br><span class="line">				Chinese: 100,</span><br><span class="line">				math: 99,</span><br><span class="line">				English: 98</span><br><span class="line">			&#125;,</span><br><span class="line">			hobby: [&apos;sing&apos;,&apos;jump&apos;,&apos;rap&apos;,&apos;basketball&apos;]</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		console.log(&apos;a的内容为：&apos;);</span><br><span class="line">		console.log(a);</span><br><span class="line"></span><br><span class="line">		let b = deepCopy(a);</span><br><span class="line">		console.log(&apos;b的内容为：&apos;);</span><br><span class="line">		console.log(b);</span><br><span class="line"></span><br><span class="line">		b.name = &apos;b&apos;;</span><br><span class="line"></span><br><span class="line">		console.log(&apos;更改后的结果如下：&apos;);</span><br><span class="line"></span><br><span class="line">		console.log(&apos;a的内容为：&apos;);</span><br><span class="line">		console.log(a);</span><br><span class="line">		console.log(&apos;b的内容为：&apos;);</span><br><span class="line">		console.log(b);</span><br></pre></td></tr></table></figure>
-
-<p>测试结果如下：<br><img src="/gallery/190810-1/4.png" alt="运行结果3"></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/10/关于JS深拷贝的思路及函数实现/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -362,7 +282,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 304 个字)
+                    2 分钟 读完 (大约 305 个字)
                 </span>
                 
                 
@@ -376,15 +296,16 @@
         </h1>
         <div class="content">
             <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="用-JavaScript-写一个函数，输入-int-型，返回整数逆序后的字符串。如：输入整型-1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。"><a href="#用-JavaScript-写一个函数，输入-int-型，返回整数逆序后的字符串。如：输入整型-1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。" class="headerlink" title="用 JavaScript 写一个函数，输入 int 型，返回整数逆序后的字符串。如：输入整型 1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。"></a>用 JavaScript 写一个函数，输入 int 型，返回整数逆序后的字符串。如：输入整型 1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。</h3><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><p>个人答案：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function reverseOrder(str)&#123;</span><br><span class="line">	str += &apos;&apos;;</span><br><span class="line">	if(str.length &lt;= 1) return str;</span><br><span class="line">	let str1 = reverseOrder(str.slice(0,str.length/2));</span><br><span class="line">	let str2 = reverseOrder(str.slice(str.length/2));</span><br><span class="line">	return str2+str1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这个答案采用的是分治的思想，将一个大问题分解成无数个相同的小问题进行求解，直到无法继续分割(即字符串只剩一个字符为止)，然后按照相反的顺序进行返回，就能得出最终结果。</li>
-<li>关于这个问题在网络有许多解法，基本的思路都是将int型数据转成字符串，然后从第一个或最后一个字符开始，每次切割出一个字符，然后按照相反的顺序进行拼接，或者将这个int型数据去除以10求余，然后执行与字符串类似的拼接操作。</li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/09/网络上那些面试题-试题2/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -419,7 +340,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 291 个字)
+                    2 分钟 读完 (大约 292 个字)
                 </span>
                 
                 
@@ -432,25 +353,17 @@
             
         </h1>
         <div class="content">
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="请写出以下代码的输出结果。"><a href="#请写出以下代码的输出结果。" class="headerlink" title="请写出以下代码的输出结果。"></a>请写出以下代码的输出结果。</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;</span><br><span class="line">   Foo.a = function() &#123;</span><br><span class="line">       console.log(1)</span><br><span class="line">   &#125;</span><br><span class="line">   this.a = function() &#123;</span><br><span class="line">       console.log(2)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.a = function() &#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;</span><br><span class="line">Foo.a = function() &#123;</span><br><span class="line">    console.log(4)</span><br><span class="line">&#125;</span><br><span class="line">Foo.a();</span><br><span class="line">let obj = new Foo();</span><br><span class="line">obj.a();</span><br><span class="line">Foo.a();</span><br></pre></td></tr></table></figure>
-
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><ul>
-<li>4</li>
-<li>2 </li>
-<li>1</li>
-</ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
-<li>1 ~ 8行只是定义了一个函数，并没有执行</li>
-<li>9 ~ 11行在这个Foo这个对象的原型上添加了一个a的函数</li>
-<li>12 ~ 14行为Foo这个函数添加了一个自定义的方法a，故在调用a时，会在自身中找到。</li>
-<li>15行调用了Foo.a()，实际上是调用了12 ~ 14行所添加的a方法，因为函数里定义的Foo.a因为Foo函数此时还没有执行，所以没有生效。</li>
-<li>16行new了一个新的Foo的对象obj，同时也执行了Foo函数。因此回到2 ~ 4行，这部分代码为Foo改写了a方法，故以后Foo.a = function(){console.log(1)}；而在4 ~ 7行中，this指向调用Foo的对象obj，故obj.a = function(){console.log(2)}。</li>
-<li>17行，此时obj.a = function(){console.log(2)}</li>
-<li>18行，此时Foo.a已经被自身函数的代买改写了，故此时Foo.a = function(){console.log(1)}</li>
-</ul>
-
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="请写出以下代码的输出结果。"><a href="#请写出以下代码的输出结果。" class="headerlink" title="请写出以下代码的输出结果。"></a>请写出以下代码的输出结果。</h3>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/08/网络上那些面试题-试题1/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -531,11 +444,11 @@
             <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
                     
-                        <img class="image is-128x128 has-mb-6" src="/images/rabbit.jpeg" alt="枫雨">
+                        <img class="image is-128x128 has-mb-6" src="/images/rabbit.jpeg" alt="春水向东">
                     
                     
                     <p class="is-size-4 is-block">
-                        枫雨
+                        春水向东
                     </p>
                     
                     
