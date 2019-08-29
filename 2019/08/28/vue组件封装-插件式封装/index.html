@@ -2,20 +2,25 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>分类: web前端 - 博客</title>
+<title>vue组件封装-插件式封装 - 博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/web前端/index.html">
+    <meta name="description" content="一、插件式的组件封装与一般的是使用插件不同的是，插件式封装的组件会直接在Vue网页运行时直接组件放入页面，根据需要显示或者暂时隐藏起来，并且可以直接调用接口使用，不需要在使用该组件的文件导入该组件，因为会在main.js中使用Vue.use()提前先安装完毕。 二、封装步骤1.封装好需要的组件文件">
+<meta name="keywords" content="组件封装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue组件封装-插件式封装">
+<meta property="og:url" content="http://yoursite.com/2019/08/28/vue组件封装-插件式封装/index.html">
 <meta property="og:site_name" content="博客">
+<meta property="og:description" content="一、插件式的组件封装与一般的是使用插件不同的是，插件式封装的组件会直接在Vue网页运行时直接组件放入页面，根据需要显示或者暂时隐藏起来，并且可以直接调用接口使用，不需要在使用该组件的文件导入该组件，因为会在main.js中使用Vue.use()提前先安装完毕。 二、封装步骤1.封装好需要的组件文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="http://yoursite.com/gallery/background-5.jpg">
+<meta property="og:updated_time" content="2019-08-29T02:41:08.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:title" content="vue组件封装-插件式封装">
+<meta name="twitter:description" content="一、插件式的组件封装与一般的是使用插件不同的是，插件式封装的组件会直接在Vue网页运行时直接组件放入页面，根据需要显示或者暂时隐藏起来，并且可以直接调用接口使用，不需要在使用该组件的文件导入该组件，因为会在main.js中使用Vue.use()提前先安装完毕。 二、封装步骤1.封装好需要的组件文件">
+<meta name="twitter:image" content="http://yoursite.com/gallery/background-5.jpg">
 
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="博客" height="28">
+                <img src="/images/logo.svg" alt="vue组件封装-插件式封装" height="28">
             
             </a>
         </div>
@@ -133,40 +138,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">web前端</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2019/08/12/JavaScrip之splice/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/background-4.jpg" alt="JavaScrip splice()">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/background-5.jpg" alt="vue组件封装-插件式封装">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-12T04:14:42.000Z">2019-08-12</time>
+                <time class="level-item has-text-grey" datetime="2019-08-28T13:41:03.000Z">2019-08-28</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 970 个字)
+                    7 分钟 读完 (大约 984 个字)
                 </span>
                 
                 
@@ -175,29 +168,53 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/08/12/JavaScrip之splice/">JavaScrip splice()</a>
+                vue组件封装-插件式封装
             
         </h1>
         <div class="content">
-            <h2 id="1-splice-函数的定义及作用"><a href="#1-splice-函数的定义及作用" class="headerlink" title="1. splice()函数的定义及作用"></a>1. splice()函数的定义及作用</h2><ul>
-<li>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。</li>
-<li>splice的注意点<ul>
-<li>该方法会改变原始数组。</li>
-<li>所有主流浏览器都支持 splice() 方法。</li>
+            <h3 id="一、插件式的组件封装"><a href="#一、插件式的组件封装" class="headerlink" title="一、插件式的组件封装"></a>一、插件式的组件封装</h3><p>与一般的是使用插件不同的是，插件式封装的组件会直接在Vue网页运行时直接组件放入页面，根据需要显示或者暂时隐藏起来，并且可以直接调用接口使用，不需要在使用该组件的文件导入该组件，因为会在main.js中使用Vue.use()提前先安装完毕。</p>
+<h3 id="二、封装步骤"><a href="#二、封装步骤" class="headerlink" title="二、封装步骤"></a>二、封装步骤</h3><h4 id="1-封装好需要的组件文件"><a href="#1-封装好需要的组件文件" class="headerlink" title="1.封装好需要的组件文件"></a>1.封装好需要的组件文件</h4><a id="more"></a>
+<p>（1）跟普通组件一样，需要先封装好组件。<br>（2）本次以toast封装为例，因为这个组件比较小，不占用太大的空间；其功能的实现不需要依赖其他组件，便于独立使用。<br>（3）注意的是，需要在该插件中提供一个methods作为外部调用的接口，在toast中，提供了一个 toastShow函数，第一个参数为显示的文本，第二个参数为显示文本的时间，如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  toastShow(message=&apos;默认文字&apos;,delay=1000)&#123;</span><br><span class="line">    this.message = message;</span><br><span class="line">    this.isShow = true;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      this.message = &apos;&apos;;</span><br><span class="line">      this.isShow = false;</span><br><span class="line">    &#125;,delay);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>（4）说明：在这个组件中，this.isShow和this.message皆为data中的数据，isShow为Boolean，用于确定是否展示toast，message是String，用于确定toast所展示的内容。</p>
+<h4 id="2-在该组件的文件夹下建立一个index-js文件"><a href="#2-在该组件的文件夹下建立一个index-js文件" class="headerlink" title="2.在该组件的文件夹下建立一个index.js文件"></a>2.在该组件的文件夹下建立一个index.js文件</h4><p>文件结构如下：</p>
+<p><img src="/gallery/190829-1/1.png" alt="组件的文件结构"></p>
+<p>然后在该文件中做出如下操作</p>
+<p>（1）将刚才封装好的toast组件导入。<br>（2）创建一个空对象。<br>（3）调用该对象的isntall函数，需要写一个参数接收Vue。<br>（4）在install函数中，进行如下操作：</p>
+<ul>
+<li>调用Vue.extend()函数，以导入的toast组件作为参数，创建一个组件构造器</li>
+<li>使用new方式，根据组件构造器创建出一个组件对象</li>
+<li>将组件对象挂载到某一个对象上</li>
+<li>将组件对象的放入网页中</li>
+<li>在Vue的原型上添加$toast，使得在任何文件中都能直接调用该组件</li>
 </ul>
-</li>
-</ul>
-<h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2. 语法"></a>2. 语法</h2>
+<p>（5）导出该对象<br>（6）具体代码如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 导入封装好的组件</span><br><span class="line">import Toast from &apos;./Toast&apos;</span><br><span class="line"></span><br><span class="line">const obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">// install函数是在main.js中执行ing的，那莪文件已经导入了Vue</span><br><span class="line">obj.install = function(Vue)&#123;</span><br><span class="line">  // 1.创建组件构造器</span><br><span class="line">  const toastContrustor = Vue.extend(Toast);</span><br><span class="line"></span><br><span class="line">  // 2. new的方式，可以根据组件构造器，创建出一个组件对象</span><br><span class="line">  const toast = new toastContrustor();</span><br><span class="line"></span><br><span class="line">  // 3. 将组件对象手动挂载到某一个对象上</span><br><span class="line">  toast.$mount(document.createElement(&apos;div&apos;));</span><br><span class="line"></span><br><span class="line">  // 4. toast.$el对应的就是div</span><br><span class="line">  document.body.append(toast.$el);</span><br><span class="line"></span><br><span class="line">  // 5. 添加到Vue的原型上</span><br><span class="line">  Vue.prototype.$toast = toast;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 导出</span><br><span class="line">export default obj;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-在main-js文件中挂载"><a href="#3-在main-js文件中挂载" class="headerlink" title="3.在main.js文件中挂载"></a>3.在main.js文件中挂载</h4><p>（1）在该文件导入toast组件所在文件夹下的index.js文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import toast from &apos;components/common/toast&apos;</span><br></pre></td></tr></table></figure>
+
+<p>（2）安装 toast </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(toast);</span><br></pre></td></tr></table></figure>
+
+<p>（3）使用Vue.use()函数的时候，会执行index.js中的代码，会将install函数执行，也就是说，会在页面中创建一个toast，并将toast加入到Vue的原型之中。</p>
+<h3 id="三、使用效果"><a href="#三、使用效果" class="headerlink" title="三、使用效果"></a>三、使用效果</h3><h4 id="1-toast从一开始就被被创建并且存在与页面之中，注意此时为display-none，需要调用toastShow函数才能让其显示出来"><a href="#1-toast从一开始就被被创建并且存在与页面之中，注意此时为display-none，需要调用toastShow函数才能让其显示出来" class="headerlink" title="1.toast从一开始就被被创建并且存在与页面之中，注意此时为display:none，需要调用toastShow函数才能让其显示出来"></a>1.toast从一开始就被被创建并且存在与页面之中，注意此时为display:none，需要调用toastShow函数才能让其显示出来</h4><p><img src="/gallery/190829-1/2.png" alt="页面中的toast"></p>
+<h4 id="2-在需要使用的时候，只需要调用Vue原型中-toast中的methods中的toastShow函数并且传入参数即可；不同于一般的组件需要在使用组件的文件中导入，注册，然后才能使用，只需要一句调用的代码的即可使用该组件，如下"><a href="#2-在需要使用的时候，只需要调用Vue原型中-toast中的methods中的toastShow函数并且传入参数即可；不同于一般的组件需要在使用组件的文件中导入，注册，然后才能使用，只需要一句调用的代码的即可使用该组件，如下" class="headerlink" title="2.在需要使用的时候，只需要调用Vue原型中$toast中的methods中的toastShow函数并且传入参数即可；不同于一般的组件需要在使用组件的文件中导入，注册，然后才能使用，只需要一句调用的代码的即可使用该组件，如下"></a>2.在需要使用的时候，只需要调用Vue原型中$toast中的methods中的toastShow函数并且传入参数即可；不同于一般的组件需要在使用组件的文件中导入，注册，然后才能使用，只需要一句调用的代码的即可使用该组件，如下</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$toast.toastShow(&apos;请先选中物品&apos;,500);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行效果"><a href="#3-运行效果" class="headerlink" title="3.运行效果"></a>3.运行效果</h4><p><img src="/gallery/190829-1/3.png" alt="调用toastShow函数的运行效果"></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/12/JavaScrip之splice/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/组件封装/">组件封装</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -207,184 +224,19 @@
 
 
 
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/08/10/关于JS深拷贝的思路及函数实现/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/background-3.jpg" alt="关于JS深拷贝的思路及函数实现">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-10T02:30:24.000Z">2019-08-10</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    7 分钟 读完 (大约 1061 个字)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/12/JavaScrip之splice/">
+                <span class="level-item">JavaScrip splice()</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/10/关于JS深拷贝的思路及函数实现/">关于JS深拷贝的思路及函数实现</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="什么是深拷贝"><a href="#什么是深拷贝" class="headerlink" title="什么是深拷贝"></a>什么是深拷贝</h2><p>在JavaScript中，复制一个变量最常见的方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">let b = a;</span><br></pre></td></tr></table></figure>
-
-<p>通过上面的这种方式我们可以将一个变量复制给另一个变量，并且两个变量a , b都用有自己的空间互不干扰。<br>然而，这样的复制方式只适用于a不是引用类型的变量，若是按照上面的代码是实现引用类型的复制，如下：</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/10/关于JS深拷贝的思路及函数实现/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/08/09/网络上那些面试题-试题2/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/background-2.jpg" alt="网络上那些面试题-试题2">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-09T01:39:47.000Z">2019-08-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 305 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/09/网络上那些面试题-试题2/">网络上那些面试题-试题2</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="用-JavaScript-写一个函数，输入-int-型，返回整数逆序后的字符串。如：输入整型-1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。"><a href="#用-JavaScript-写一个函数，输入-int-型，返回整数逆序后的字符串。如：输入整型-1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。" class="headerlink" title="用 JavaScript 写一个函数，输入 int 型，返回整数逆序后的字符串。如：输入整型 1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。"></a>用 JavaScript 写一个函数，输入 int 型，返回整数逆序后的字符串。如：输入整型 1234，返回字符串“4321”。要求必须使用递归函数调用，不能用全局变量，输入函数必须只有一个参数传入，必须返回字符串。</h3><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><p>个人答案：</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/09/网络上那些面试题-试题2/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/08/08/网络上那些面试题-试题1/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/background-1.jpg" alt="网络上那些面试题-试题1">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-08T09:23:15.000Z">2019-08-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 292 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/08/网络上那些面试题-试题1/">网络上那些面试题-试题1</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="请写出以下代码的输出结果。"><a href="#请写出以下代码的输出结果。" class="headerlink" title="请写出以下代码的输出结果。"></a>请写出以下代码的输出结果。</h3>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/08/网络上那些面试题-试题1/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
@@ -430,7 +282,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        6
                     </p>
                 </div>
             </div>
@@ -440,7 +292,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -450,7 +302,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        6
                     </p>
                 </div>
             </div>
@@ -524,12 +376,20 @@
             </h3>
             <ul class="menu-list">
             <li>
-        <a class="level is-marginless" href="/categories/web前端/">
+        <a class="level is-marginless" href="/categories/JS/">
             <span class="level-start">
-                <span class="level-item">web前端</span>
+                <span class="level-item">JS</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li>
             </ul>
@@ -543,7 +403,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/数组操作/" style="font-size: 10px;">数组操作</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a>
+        <a href="/tags/数据的存储方式/" style="font-size: 10px;">数据的存储方式</a> <a href="/tags/数组操作/" style="font-size: 10px;">数组操作</a> <a href="/tags/深拷贝/" style="font-size: 10px;">深拷贝</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件封装/" style="font-size: 10px;">组件封装</a> <a href="/tags/面试/" style="font-size: 20px;">面试</a>
     </div>
 </div>
 
@@ -560,6 +420,25 @@
         
         <article class="media">
             
+            <a href="/2019/08/28/vue组件封装-插件式封装/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/background-5.jpg" alt="vue组件封装-插件式封装">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-28T13:41:03.000Z">2019-08-28</time></div>
+                    <a href="/2019/08/28/vue组件封装-插件式封装/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue组件封装-插件式封装</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/08/12/JavaScrip之splice/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/background-4.jpg" alt="JavaScrip splice()">
@@ -571,7 +450,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-12T04:14:42.000Z">2019-08-12</time></div>
                     <a href="/2019/08/12/JavaScrip之splice/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScrip splice()</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -590,7 +469,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-10T02:30:24.000Z">2019-08-10</time></div>
                     <a href="/2019/08/10/关于JS深拷贝的思路及函数实现/" class="title has-link-black-ter is-size-6 has-text-weight-normal">关于JS深拷贝的思路及函数实现</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -609,7 +488,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-09T01:39:47.000Z">2019-08-09</time></div>
                     <a href="/2019/08/09/网络上那些面试题-试题2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网络上那些面试题-试题2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -628,26 +507,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:23:15.000Z">2019-08-08</time></div>
                     <a href="/2019/08/08/网络上那些面试题-试题1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网络上那些面试题-试题1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/08/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T01:38:47.947Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -671,7 +531,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -690,15 +550,36 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/JS/">
-                        <span class="tag">JS</span>
-                        <span class="tag is-grey">4</span>
+                    <a class="tags has-addons" href="/tags/数据的存储方式/">
+                        <span class="tag">数据的存储方式</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/数组操作/">
                         <span class="tag">数组操作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/深拷贝/">
+                        <span class="tag">深拷贝</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/组件封装/">
+                        <span class="tag">组件封装</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -735,6 +616,25 @@
         
         <article class="media">
             
+            <a href="/2019/08/28/vue组件封装-插件式封装/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/background-5.jpg" alt="vue组件封装-插件式封装">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-28T13:41:03.000Z">2019-08-28</time></div>
+                    <a href="/2019/08/28/vue组件封装-插件式封装/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue组件封装-插件式封装</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/08/12/JavaScrip之splice/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/background-4.jpg" alt="JavaScrip splice()">
@@ -746,7 +646,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-12T04:14:42.000Z">2019-08-12</time></div>
                     <a href="/2019/08/12/JavaScrip之splice/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScrip splice()</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -765,7 +665,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-10T02:30:24.000Z">2019-08-10</time></div>
                     <a href="/2019/08/10/关于JS深拷贝的思路及函数实现/" class="title has-link-black-ter is-size-6 has-text-weight-normal">关于JS深拷贝的思路及函数实现</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -784,7 +684,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-09T01:39:47.000Z">2019-08-09</time></div>
                     <a href="/2019/08/09/网络上那些面试题-试题2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网络上那些面试题-试题2</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -803,26 +703,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:23:15.000Z">2019-08-08</time></div>
                     <a href="/2019/08/08/网络上那些面试题-试题1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">网络上那些面试题-试题1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/08/08/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T01:38:47.947Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/JS/">JS</a>
                     </p>
                 </div>
             </div>
@@ -846,7 +727,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -865,15 +746,36 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/JS/">
-                        <span class="tag">JS</span>
-                        <span class="tag is-grey">4</span>
+                    <a class="tags has-addons" href="/tags/数据的存储方式/">
+                        <span class="tag">数据的存储方式</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/数组操作/">
                         <span class="tag">数组操作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/深拷贝/">
+                        <span class="tag">深拷贝</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/组件封装/">
+                        <span class="tag">组件封装</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -902,7 +804,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="博客" height="28">
+                    <img src="/images/logo.svg" alt="vue组件封装-插件式封装" height="28">
                 
                 </a>
                 <p class="is-size-7">
